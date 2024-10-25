@@ -1,0 +1,96 @@
+.posicao {
+    position: relative;
+}
+
+.cabeca {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    border: 10px solid black;
+    position: absolute;
+    top: 50px;
+    right: -30px;
+}
+
+.corpo {
+    height: 100px;
+    width: 10px;
+    background-color: black;
+    position: absolute;
+    top: 120px;
+    right: 0;
+}
+
+.bracoDireito {
+    height: 10px;
+    width: 80px;
+    background-color: black;
+    position: absolute;
+    top: 150px;
+    right: -80px;
+    rotate: -30deg;
+    transform-origin: left bottom;
+}
+
+.bracoEsquerdo {
+    height: 10px;
+    width: 80px;
+    background-color: black;
+    position: absolute;
+    top: 150px;
+    right: 10px;
+    rotate: 30deg;
+    transform-origin: right bottom;
+}
+
+.pernaDireita {
+    height: 10px;
+    width: 100px;
+    background-color: black;
+    position: absolute;
+    top: 210px;
+    right: -90px;
+    rotate: 60deg;
+    transform-origin: left bottom;
+}
+
+.pernaEsquerda {
+    height: 10px;
+    width: 100px;
+    background-color: black;
+    position: absolute;
+    top: 210px;
+    right: 0;
+    rotate: -60deg;
+    transform-origin: right bottom;
+}
+
+.riscoPontaForca {
+    height: 50px;
+    width: 10px;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.riscoTopo {
+    height: 10px;
+    width: 200px;
+    background-color: black;
+    margin-left: 120px;
+}
+
+.riscoPrincipal {
+    height: 400px;
+    width: 10px;
+    background-color: black;
+    margin-left: 120px;
+}
+
+.riscoBase {
+    height: 10px;
+    width: 250px;
+    background-color: black;
+}
+

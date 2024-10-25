@@ -1,0 +1,17 @@
+.mainDisplay {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.textoResultado {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.teclado {
+    align-self: stretch;
+}
