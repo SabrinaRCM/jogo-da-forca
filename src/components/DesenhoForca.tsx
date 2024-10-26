@@ -29,7 +29,7 @@ type DesenhoForcaProps = {
     numeroAcertos: number
 }
 
-export function DesenhoForca({numeroAcertos} : DesenhoForcaProps) {
+export function DesenhoForca({numeroAcertos} : Readonly<DesenhoForcaProps>) {
     return (
         <div className={styles.posicao}>
             {PARTES_CORPO.slice(0, numeroAcertos)}

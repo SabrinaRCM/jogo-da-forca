@@ -23,6 +23,7 @@
 
 .btn.inactive {
     opacity: .3;
+    cursor: unset;
 }
 
 .btn:hover:not(:disabled),
