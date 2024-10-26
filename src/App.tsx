@@ -7,17 +7,18 @@ import { Teclado } from "./components/Teclado"
 
 function App() {
   
-  const [palavraParaAdivinhar, setPalavraParaAdivinhar] = useState<string>(() => {
-    return palavras[Math.floor(Math.random() * palavras.length)]
-  })
+  const [palavraParaAdivinhar, setPalavraParaAdivinhar] = useState(novaPalavra)
   const [letrasAdivinhadas, setLetrasAdivinhadas] = useState<string[]>([])
 
   const letrasIncorretas = letrasAdivinhadas.filter(letra => !palavraParaAdivinhar.includes(letra))
 
+  const perdeu = letrasIncorretas.length >= 6
+  const ganhou = palavraParaAdivinhar.split("").every(letra => letrasAdivinhadas.includes(letra))
+
   const addLetraAdivinhada = useCallback((letra: string) => {
-    if (letrasAdivinhadas.includes(letra)) return
+    if (letrasAdivinhadas.includes(letra) || perdeu || ganhou) return
     setLetrasAdivinhadas(letrasAtuais => [...letrasAtuais, letra])
-  }, [letrasAdivinhadas])
+  }, [letrasAdivinhadas, perdeu, ganhou])
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -34,19 +35,51 @@ function App() {
     }
   }, [letrasAdivinhadas])
 
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      const key = e.key
+      if (key !== "Enter") return
+
+      e.preventDefault()
+      setLetrasAdivinhadas([])
+      setPalavraParaAdivinhar(novaPalavra())
+    }
+    document.addEventListener("keydown", handler)
+
+    return () => {
+      document.removeEventListener("keydown", handler)
+    }
+  }, [letrasAdivinhadas])
+
   return (
     <div className={styles.mainDisplay}>
-      <div className={styles.textoResultado}>Lose Win</div>
-      <DesenhoForca numeroAcertos={letrasIncorretas.length} />
-      <PalavraForca letrasAdivinhadas={letrasAdivinhadas} palavraParaAdivinhar={palavraParaAdivinhar} />
+      <div className={styles.textoResultado}>
+        {ganhou && "Vencedor! - Recarregue a página para jogar novamente"}
+        {perdeu && "Boa tentativa! - Recarregue a página para jogar novamente"}
+      </div>
+      <DesenhoForca 
+        numeroAcertos={letrasIncorretas.length} 
+      />
+      <PalavraForca
+        revelarPalavra={perdeu}
+        letrasAdivinhadas={letrasAdivinhadas} 
+        palavraParaAdivinhar={palavraParaAdivinhar} 
+      />
       <div className={styles.teclado}>
-        <Teclado letrasAtivas={letrasAdivinhadas.filter(letra => palavraParaAdivinhar.includes(letra))}
+        <Teclado
+          disabled={ganhou || perdeu}
+          letrasAtivas={letrasAdivinhadas.filter(letra => palavraParaAdivinhar.includes(letra))}
           letrasInativas={letrasIncorretas}
-          addLetraAdivinhada={addLetraAdivinhada}/>
+          addLetraAdivinhada={addLetraAdivinhada}
+        />
       </div>
 
     </div>
   )
+}
+
+function novaPalavra() {
+  return palavras[Math.floor(Math.random() * palavras.length)]
 }
 
 export default App
