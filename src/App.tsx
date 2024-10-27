@@ -74,6 +74,12 @@ function App() {
         />
       </div>
 
+      <div>
+        <h3>
+          <a href="https://github.com/SabrinaRCM/jogo-da-forca" target="_blank">Link para projeto</a>
+        </h3>
+      </div>
+
     </div>
   )
 }
