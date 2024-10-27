@@ -94,3 +94,57 @@
     background-color: black;
 }
 
+@media (max-width: 600px) {
+ 
+    .cabeca {
+        height: 30px;
+        width: 30px;
+        top: 30px;
+        right: -20px;
+    }
+
+    .corpo {
+        top: 70px;
+        height: 80px;
+    }
+
+    .bracoDireito {
+        width: 40px;
+        top: 100px;
+        right: -40px;
+    }
+
+    .bracoEsquerdo {
+        width: 40px;
+        top: 100px;
+    }
+
+    .pernaDireita {
+        width: 60px;
+        top: 140px;
+        right: -50px;
+    }
+
+    .pernaEsquerda {
+        width: 60px;
+        top: 140px;
+    }
+    
+    .riscoPontaForca {
+        height: 35px;
+    }
+
+    .riscoTopo {
+        width: 130px;
+        margin-left: 45px;
+    }
+
+    .riscoPrincipal {
+        height: 300px;
+        margin-left: 45px;
+    }
+
+    .riscoBase {
+        width: 100px;
+    }     
+}

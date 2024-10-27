@@ -30,3 +30,11 @@
 .btn:focus:not(:disabled) {
     background-color: hsl(200, 100%, 75%);
 }
+
+@media (max-width: 600px) {
+    .displayLetras {
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+        gap: .3rem;
+        margin: 0 5%;
+    }
+}

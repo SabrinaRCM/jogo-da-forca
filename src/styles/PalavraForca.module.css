@@ -10,3 +10,9 @@
 .sublinhadoLetra {
     border-bottom: .1em solid black;
 }
+
+@media (max-width: 600px) {
+    .displayPalavra {
+        font-size: 2.5rem;
+    }
+}
